@@ -6,12 +6,12 @@
 </head>
 <body>
 <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Name">
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <label for="firstName">Name</label>
+    <input type="text" th:field="*{firstName}" id="firstName" placeholder="Name">
+    <label for="lastName">Name</label>
+    <input type="text" th:field="*{lastName}" id="lastName" placeholder="Name">
     <label for="email">Email</label>
     <input type="text" th:field="*{email}" id="email" placeholder="Email">
-    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
     <input type="submit" value="Add User">
 </form>
 
