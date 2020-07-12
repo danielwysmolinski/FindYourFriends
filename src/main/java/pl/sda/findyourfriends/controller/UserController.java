@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.sda.findyourfriends.repository.UserRepository;
 import pl.sda.findyourfriends.users.User;
 
-@Controller         //Controller ma obsługiwać dane przychodzące ze strony web aplikacji
+@RestController         //Controller ma obsługiwać dane przychodzące ze strony web aplikacji
 @RequestMapping(path = "/users")
 public class UserController {
 
@@ -14,8 +14,8 @@ public class UserController {
     private UserRepository userRepository;
 
     @PostMapping(path = "/add")
-    public @ResponseBody String addNewUser (@RequestParam String firstName, @RequestParam String lastName,
-                                            @RequestParam String email) {
+    public User addNewUser (@RequestBody String firstName, @RequestBody String lastName,
+                                            @RequestBody String email) {
 
         //ZAPIS DO BAZY
         // Zapis nowego użytkownika po firstName, lastName, email do userRepository
@@ -23,13 +23,13 @@ public class UserController {
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmail(email);
-        userRepository.save(user);
-        return "Saved";
+        return userRepository.save(user);
+
     }
 
     //ODCZYT Z BAZY ??? na razie odczytuje wszystkich użytkowników
     @GetMapping(path = "/all")
-    public @ResponseBody Iterable<User> getAllUsers() {
+    public Iterable<User> getAllUsers() {
         //ta metoda zwraca wszystkich uzytkowników z userRepository
         return userRepository.findAll();
     }
