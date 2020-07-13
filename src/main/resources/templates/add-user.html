@@ -6,15 +6,17 @@
     <title>Title</title>
 </head>
 <body>
-<form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
-    <label for="firstName">Name</label>
-    <input type="text" th:field="*{firstName}" id="firstName" placeholder="Name">
-    <label for="lastName">Name</label>
-    <input type="text" th:field="*{lastName}" id="lastName" placeholder="Name">
-    <label for="email">Email</label>
-    <input type="text" th:field="*{email}" id="email" placeholder="Email">
-    <input type="submit" value="Add User">
-</form>
+<center><form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+    <div><label for="firstName">First Name</label>
+    <input type="text" th:field="*{firstName}" id="firstName"></div>
+        <div><label for="lastName">Last Name</label>
+        <input type="text" th:field="*{lastName}" id="lastName"></div>
+            <div><label for="email">Password</label>
+            <input type="text" th:field="*{password}" id="password"></div>
+                <div><label for="email">Email</label>
+                <input type="text" th:field="*{email}" id="email"></div>
+                    <div><input type="submit" value="Add User"></div>
+</form></center>
 
 </body>
 </html>
