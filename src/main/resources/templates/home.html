@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title>Spring Security Example</title>
+    <meta charset="utf-8">
+    <title>Find Your Friends</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300&amp;subset=latin-ext" rel="stylesheet">
+    <style>
+        html, body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        header {
+            font-size: 32px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            line-height: 1.188em;
+            text-align: center;
+            padding: 60px 0px;
+            border-bottom: 10px solid #1969ba;
+            background-color: #232323;
+        }
+
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        header a:hover {
+            color: #c5e2ff;
+        }
+
+        #map {
+            position: absolute;
+            top: 168px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+        </style>
 </head>
 <body>
-<h1>Welcome!</h1>
+<header>
+    <a href="http://google.pl">Find Your Friends</a>
+</header>
+<div id="Googlemap.js"></div>
 
-<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+<script src="//maps.google.com/maps/api/js?sensor=false&amp;language=pl"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/gmap3.min.js"></script>
+
 </body>
 </html>
+
