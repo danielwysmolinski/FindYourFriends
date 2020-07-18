@@ -24,6 +24,8 @@ public class UserController {
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmail(email);
+        user.getUsername();
+        user.setPassword();
         return userRepository.save(user);
 
     }
