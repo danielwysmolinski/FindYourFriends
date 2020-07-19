@@ -1,4 +1,4 @@
-package pl.sda.shopapp.config;
+package pl.sda.findyourfriends.config;
 
 import com.google.maps.GeoApiContext;
 import org.springframework.beans.factory.annotation.Value;
