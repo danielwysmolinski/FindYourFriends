@@ -29,7 +29,7 @@ public class RegisterController {
     @PostMapping(path = "/adduser", consumes = {"application/x-www-form-urlencoded"})
     public String addUser(@Valid @ModelAttribute User user) {
         userRegistrationService.registerUser(user);
-        return "redirect:/hello";
+        return "redirect:/login";
     }
 
 }
