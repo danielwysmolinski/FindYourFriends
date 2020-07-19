@@ -1,7 +1,9 @@
 package pl.sda.findyourfriends.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import pl.sda.findyourfriends.repository.UserRepository;
 import pl.sda.findyourfriends.users.User;
 
@@ -13,22 +15,6 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
-
-    @PostMapping(path = "/add")
-    public User addNewUser (@RequestBody String firstName, @RequestBody String lastName,
-                                            @RequestBody String email) {
-
-        //ZAPIS DO BAZY
-        // Zapis nowego użytkownika po firstName, lastName, email do userRepository
-        User user = new User();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setEmail(email);
-        user.getUsername();
-        user.setPassword();
-        return userRepository.save(user);
-
-    }
 
     //ODCZYT Z BAZY ??? na razie odczytuje wszystkich użytkowników
     @GetMapping(path = "/all")

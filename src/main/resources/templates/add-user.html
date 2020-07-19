@@ -6,19 +6,21 @@
     <title>Title</title>
 </head>
 <body>
-<center><form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
-    <div><label for="firstName">First Name</label>
-    <input type="text" th:field="*{firstName}" id="firstName"></div>
+<center>
+    <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+        <div><label for="firstName">First Name</label>
+            <input type="text" th:field="*{firstName}" id="firstName"></div>
         <div><label for="lastName">Last Name</label>
-        <input type="text" th:field="*{lastName}" id="lastName"></div>
+            <input type="text" th:field="*{lastName}" id="lastName"></div>
         <div><label for="username">User name</label>
-        <input type="text" th:field="*{username}" id="username"></div>
-            <div><label for="email">Password</label>
+            <input type="text" th:field="*{username}" id="username"></div>
+        <div><label for="email">Password</label>
             <input type="text" th:field="*{password}" id="password"></div>
-                <div><label for="email">Email</label>
-                <input type="text" th:field="*{email}" id="email"></div>
-                    <div><input type="submit" value="Add User"></div>
-</form></center>
+        <div><label for="email">Email</label>
+            <input type="text" th:field="*{email}" id="email"></div>
+        <div><input type="submit" value="Add User"></div>
+    </form>
+</center>
 
 </body>
 </html>
