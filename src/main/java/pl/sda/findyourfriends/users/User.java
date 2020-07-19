@@ -33,4 +33,6 @@ public class User {
     private String email;
     private String role;
 
+    public User(String username, String firstName, String lastName, String encode, String email) {
+    }
 }
