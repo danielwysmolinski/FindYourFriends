@@ -1,24 +1,22 @@
-package pl.sda.findyourfriends.controller;
+package pl.sda.findyourfriends.controller.view;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.sda.findyourfriends.repository.UserRepository;
 import pl.sda.findyourfriends.service.UserRegistrationService;
 import pl.sda.findyourfriends.users.User;
 
 import javax.validation.Valid;
 
 @Controller
+@RequiredArgsConstructor
 public class RegisterController {
 
-    @Autowired
-    private UserRegistrationService userRegistrationService;
-
+    private final UserRegistrationService userRegistrationService;
 
     @GetMapping("/signup")
     public String showSignUpForm(Model model) {
@@ -26,7 +24,7 @@ public class RegisterController {
         return "add-user";
     }
 
-    @PostMapping(path = "/adduser", consumes = {"application/x-www-form-urlencoded"})
+    @PostMapping(path = "/adduser")
     public String addUser(@Valid @ModelAttribute User user) {
         userRegistrationService.registerUser(user);
         return "redirect:/login";

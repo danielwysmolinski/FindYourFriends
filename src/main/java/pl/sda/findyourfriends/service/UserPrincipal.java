@@ -5,23 +5,21 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import pl.sda.findyourfriends.users.User;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Collections;
 
 public class UserPrincipal implements UserDetails {
 
-    private User user;
+    private final User user;
 
-     public UserPrincipal(User user){
-         this.user = user;
-     };
+    public UserPrincipal(User user) {
+        this.user = user;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         //wydobycie listy roll
-       return this.user.getRoleList().stream().map(r -> new SimpleGrantedAuthority("ROLE_" + r)).collect(Collectors.toList());
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
     }
 
     @Override
