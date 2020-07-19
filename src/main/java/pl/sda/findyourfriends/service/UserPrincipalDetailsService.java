@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import pl.sda.findyourfriends.repository.UserRepository;
 import pl.sda.findyourfriends.users.User;
 
+import java.util.Optional;
+
 @Service
 public class UserPrincipalDetailsService implements UserDetailsService {
 
@@ -18,10 +20,8 @@ public class UserPrincipalDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = this.userRepository.findByUsername(username);
-        if (user == null) {
-            throw new UsernameNotFoundException(username);
-        }
-        return new UserPrincipal(user);
+        return userRepository.findByUsername(username)
+                .map(UserPrincipal::new)
+                .orElseThrow(() -> new UsernameNotFoundException(username));
     }
 }
