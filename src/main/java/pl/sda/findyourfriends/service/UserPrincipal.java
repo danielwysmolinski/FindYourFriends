@@ -8,6 +8,7 @@ import pl.sda.findyourfriends.users.User;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserPrincipal implements UserDetails {
 
@@ -19,13 +20,8 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-
         //wydobycie listy roll
-        this.user.getRoleList().forEach(r -> {
-            GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + r);
-        });
-        return authorities;
+       return this.user.getRoleList().stream().map(r -> new SimpleGrantedAuthority("ROLE_" + r)).collect(Collectors.toList());
     }
 
     @Override
