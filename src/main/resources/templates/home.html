@@ -71,10 +71,23 @@
 <script src="js/gmap3.min.js"></script>
 
 <script>
+ if('geolocation' in navigator) {
+    console.log('geolocation available');
+    navigator.geolocation.getCurrentPosition(position => {
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+
+        console.log(lat);
+        console.log(long);
+
+});
+} else {
+  console.log('geolocation not available')
+}
 $('#map').gmap3({
     map: {
         options: {
-            center: [53.128381, 17.998191],
+            center: [50, 20],
             zoom: 15,
             panControl: false,
             zoomControl: false
@@ -82,8 +95,8 @@ $('#map').gmap3({
     },
     marker: {
         values:[{
-            latLng: [53.128381, 17.998191],
-            data: 'Dworcowa 50'
+            latLng: [50, 20],
+            data: 'User Name'
         }],
         events:{
             click: function(marker, event, context) {
