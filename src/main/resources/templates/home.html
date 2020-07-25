@@ -4,14 +4,12 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Find Your Friends</title>
-
     <link href="http://fonts.googleapis.com/css?family=Roboto:300&amp;subset=latin-ext" rel="stylesheet">
     <style>
         html, body {
             padding: 0px;
             margin: 0px;
         }
-
         header {
             font-size: 32px;
             font-family: 'Roboto', sans-serif;
@@ -22,16 +20,13 @@
             border-bottom: 10px solid #1969ba;
             background-color: #232323;
         }
-
         header a {
             color: #ffffff;
             text-decoration: none;
         }
-
         header a:hover {
             color: #c5e2ff;
         }
-
         #map {
             position: absolute;
             top: 178px;
@@ -39,7 +34,6 @@
             right: 0px;
             bottom: 0px;
         }
-
         .button {
             border: none;
             color: white;
@@ -51,48 +45,35 @@
             margin: 4px 2px;
             cursor: pointer;
         }
-
         .button1 {
             background-color: #4CAF50;
             border-radius: 6px;
             padding: 10px 24px;
         }
-
         /* Green */
         .button2 {
             background-color: #008CBA;
             border-radius: 6px;
             padding: 10px 24px;
         }
-
-<<<<<<< HEAD
-        </style>
-=======
         /* Blue */
-
-
     </style>
->>>>>>> c2be27dac49601020ee23eb9e77e12ceac2b4887
 </head>
 <body>
 <header>
     <a href="http://google.pl">Find Your Friends</a>
-
     <button class="button button1"><a href="/login">Zaloguj</a></button>
     <button class="button button2"><a href="/signup">Zarejestruj</a></button>
 </header>
 <div id="map"></div>
 <script>
-
       var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
           zoom: 10
         });
-
         infoWindow = new google.maps.InfoWindow;
-
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
@@ -111,7 +92,6 @@
           handleLocationError(false, infoWindow, map.getCenter());
         }
       }
-
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
