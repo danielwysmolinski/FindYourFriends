@@ -34,7 +34,7 @@
 
         #map {
             position: absolute;
-            top: 168px;
+            top: 178px;
             left: 0px;
             right: 0px;
             bottom: 0px;
@@ -95,7 +95,7 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
+ console.log(pos);
             infoWindow.setPosition(pos);
             infoWindow.setContent('User Name');  //Tu przekazać usera
             infoWindow.open(map);
