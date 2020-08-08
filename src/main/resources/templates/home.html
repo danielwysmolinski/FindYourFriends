@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -29,8 +29,8 @@
         }
         #map {
             position: absolute;
-            top: 178px;
-            left: 0px;
+            top: 190px;
+            left: 200px;
             right: 0px;
             bottom: 0px;
         }
@@ -62,9 +62,27 @@
 <body>
 <header>
     <a href="http://google.pl">Find Your Friends</a>
-    <button class="button button1"><a href="/login">Zaloguj</a></button>
-    <button class="button button2"><a href="/signup">Zarejestruj</a></button>
+<!--    <button class="button button1"><a href="/login">Zaloguj</a></button>-->
+<!--    <button class="button button2"><a href="/signup">Zarejestruj</a></button>-->
 </header>
+<form action="#" th:action="@{/search}" th:object="${input}" method="post">
+    <div>
+        <label for="mySearch">Find your Friend</label>
+        <input type="search" th:field="*{query}" id="mySearch" name="q"
+               placeholder="type friend's name..." required>
+        <button>Search</button>
+        <span class="validity"></span>
+    </div>
+</form>
+<table th:if="${foundUser ne null}">
+    <tr th:object="${foundUser}">
+        <td th:text="${foundUser.firstName}"></td>
+        <td th:text="${foundUser.lastName}"></td>
+    </tr>
+</table>
+<p th:unless="${foundUser ne null}">
+    No user found
+</p>
 <div id="map"></div>
 <script>
       var map, infoWindow;
